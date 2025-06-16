@@ -12,11 +12,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const { createClient } = require("@supabase/supabase-js");
-const supabaseUrl = "https://yuqjirmnvjgltxvuqqvn.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1cWppcm1udmpnbHR4dnVxcXZuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MDAzMzI0NSwiZXhwIjoyMDY1NjA5MjQ1fQ.xXLH3hEuyjCZhxJ2X5WLl9EA0qBZ_jduLMpZHBu-OO8"; // Use service key for inserts
-const supabase = createClient(supabaseUrl, supabaseKey);
+require("dotenv").config(); // this can stay, even if unused on Render
+
+const { createClient } = require("@supabase/supabase-js"); // ✅ This is required
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
+const PORT = process.env.PORT || 3000;
 
 // ✅ Add Content Security Policy for fonts & styles
 app.use((req, res, next) => {
@@ -262,8 +265,8 @@ app.get("/barangay", (req, res) => {
 });
 
 // ✅ Start the server
-app.listen(3000, () => {
-  console.log("🚀 API server running at http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`🚀 API server running at http://localhost:${PORT}`);
 });
 
 // ✅ Barangay
