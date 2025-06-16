@@ -260,7 +260,7 @@ app.get("/crime/:id", async (req, res) => {
 });
 
 // ✅ Serve index.html at root
-app.get("/barangay", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "UI", "dist", "index.html"));
 });
 
