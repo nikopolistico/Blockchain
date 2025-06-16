@@ -1,0 +1,24 @@
+{
+  "name": "crime-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "express": "^5.1.0",
+    "fabric-network": "^1.4.20",
+    "multer": "^2.0.1",
+    "mysql2": "^3.14.1"
+  },
+  "description": ""
+}
