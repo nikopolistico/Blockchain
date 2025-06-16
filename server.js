@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 // ✅ Serve frontend from 'crime-system' folder
-//app.use(express.static(path.join(__dirname, "UI", "dist")));
+app.use(express.static(path.join(__dirname, "UI", "dist")));
 
 // ✅ Paths to connection profile and wallet
 const ccpPath = path.resolve(
@@ -260,12 +260,8 @@ app.get("/crime/:id", async (req, res) => {
 });
 
 // ✅ Serve index.html at root
-//app.get("/", (req, res) => {
-//  res.sendFile(path.join(__dirname, "UI", "dist", "index.html"));
-//});
-
 app.get("/", (req, res) => {
-  res.send("🚀 API is live");
+  res.sendFile(path.join(__dirname, "UI", "dist", "index.html"));
 });
 
 // ✅ Start the server
